@@ -1,0 +1,5 @@
+.display-panel {
+  $left-offset: 10%;
+  padding-left: $left-offset;
+  clip-path: polygon($left-offset 0, 100% 0, 100% 100%, 0% 100%);
+}

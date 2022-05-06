@@ -1,0 +1,4 @@
+<div class="flex h-full justify-between">
+  <app-search-panel class="w-1/2 h-full" (citySelected)="geocode=$event"></app-search-panel>
+  <app-display-panel class="w-1/2 h-full" [geocode]="geocode"></app-display-panel>
+</div>
