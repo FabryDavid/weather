@@ -1,0 +1,21 @@
+<div class="flex justify-end items-center text-white text-3xl">
+  <div
+    [ngClass]="{
+    'opacity-50': displayUnit.displayUnit===DisplayUnit.fahrenheit
+    }"
+    class="mr-1 cursor-pointer"
+    (click)="setDisplayUnit(DisplayUnit.celsius)"
+  >
+    <i class="wi wi-celsius"></i>
+  </div>
+  /
+  <div
+    [ngClass]="{
+    'opacity-50': displayUnit.displayUnit===DisplayUnit.celsius
+    }"
+    class="ml-1 cursor-pointer"
+    (click)="setDisplayUnit(DisplayUnit.fahrenheit)"
+  >
+    <i class="wi wi-fahrenheit"></i>
+  </div>
+</div>

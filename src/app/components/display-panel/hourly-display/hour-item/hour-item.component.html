@@ -1,0 +1,17 @@
+<div [ngClass]="{'hour-item-night': isNight()}" class="clay inline-block h-full py-2 rounded-2xl hour-item" *ngIf="hourItem">
+  <div class="font-bold text-center">
+    {{hourItem.getCalculationDate().toLocaleTimeString('en-US', {hour: '2-digit', hour12: false, minute: '2-digit'})}}
+  </div>
+  <div class="font-light text-sm opacity-75 text-center">
+    {{hourItem.getCalculationDate().toLocaleDateString('en-US', {weekday: 'short'})}}
+  </div>
+
+  <i
+    [ngClass]="hourItem.weatherInfos[0].getIconName()"
+    class="text-center w-full mt-3 text-4xl wi"
+  ></i>
+
+  <div class="mt-5 text-1xl text-center w-fit mx-auto font-extrabold">
+    {{hourItem.getTemperature()}}°
+  </div>
+</div>

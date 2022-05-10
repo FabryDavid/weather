@@ -5,4 +5,8 @@ export class Wind {
     public windGust: number | null,
   ) {
   }
+
+  public getWindSpeed() {
+    return `${Math.round(this.windSpeed * 3.6)} km/h`
+  }
 }

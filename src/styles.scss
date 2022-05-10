@@ -7,6 +7,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./app/scss/weather-icons.min.css";
+@import "./app/scss/weather-icons-wind.min.css";
+
+@import "claymorphism-css/dist/clay.css";
+
 html, body {
   height: 100%;
 }

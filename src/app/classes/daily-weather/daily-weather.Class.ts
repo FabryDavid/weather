@@ -15,14 +15,20 @@ export class DailyWeather extends Weather {
     public feels_like: Temperature,
     public pressure: number,
     public humidity: number,
-    // public uvIndex: number,
     public clouds: number,
-    // public visibility: number,
     public wind: Wind,
     public rain: Object | null,
     public snow: Object | null,
     public weatherInfos: Array<WeatherInfos>,
   ) {
     super(calculationDate, pressure, humidity, clouds, wind, rain, snow, weatherInfos)
+  }
+
+  public getSunriseTime() {
+    return this.convertUtcDate(this.sunrise)
+  }
+
+  public getSunsetTime() {
+    return this.convertUtcDate(this.sunset)
   }
 }

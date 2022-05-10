@@ -1,0 +1,24 @@
+.daily-display {
+  height: 285px;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 50px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+  }
+}

@@ -42,7 +42,14 @@ export class WeatherService {
         // Current
         const currentWeatherInfos: Array<WeatherInfos> = []
         response.current.weather.forEach((info: WeatherInfos) => {
-          currentWeatherInfos.push(info)
+          currentWeatherInfos.push(
+            new WeatherInfos(
+              info.id,
+              info.main,
+              info.description,
+              info.icon,
+            )
+          )
         })
         const currentWeather = new CurrentWeather(
           response.current.dt,
@@ -51,7 +58,7 @@ export class WeatherService {
           response.current.temp,
           response.current.feels_like,
           response.current.pressure,
-          response.current.humdidity,
+          response.current.humidity,
           response.current.uvi,
           response.current.clouds,
           response.current.visibility,
@@ -71,13 +78,18 @@ export class WeatherService {
           const weatherInfos: Array<WeatherInfos> = []
 
           item.weather.forEach((info: WeatherInfos) => {
-            weatherInfos.push(info)
+            weatherInfos.push(new WeatherInfos(
+              info.id,
+              info.main,
+              info.description,
+              info.icon,
+            ))
           })
 
 
           hourlyWeathers.push(
             new HourlyWeather(
-              item.id,
+              item.dt,
               item.temp,
               item.feels_like,
               item.pressure,
@@ -103,33 +115,38 @@ export class WeatherService {
           const weatherInfos: Array<WeatherInfos> = []
 
           item.weather.forEach((info: WeatherInfos) => {
-            weatherInfos.push(info)
+            weatherInfos.push(new WeatherInfos(
+              info.id,
+              info.main,
+              info.description,
+              info.icon,
+            ))
           })
 
 
           dailyWeathers.push(
             new DailyWeather(
-              item.id,
+              item.dt,
               item.sunrise,
               item.sunset,
               item.moonrise,
               item.moonset,
               item.moon_phase,
               new Temperature(
-                item.day,
-                item.min,
-                item.max,
-                item.night,
-                item.eve,
-                item.morn,
+                item.temp.day,
+                item.temp.min,
+                item.temp.max,
+                item.temp.night,
+                item.temp.eve,
+                item.temp.morn,
               ),
               new Temperature(
-                item.day,
+                item.feels_like.day,
                 null,
                 null,
-                item.night,
-                item.eve,
-                item.morn,
+                item.feels_like.night,
+                item.feels_like.eve,
+                item.feels_like.morn,
               ),
               item.pressure,
               item.humidity,

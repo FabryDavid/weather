@@ -15,7 +15,8 @@
         type="text"
         style="border: gray 1px solid;"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="City, country">
+        placeholder="City, country"
+      >
     </div>
 
     <button
@@ -27,7 +28,11 @@
     </button>
   </ng-form>
 
-  <div class="mt-10 relative overflow-x-auto shadow-md border border-gray-300 sm:rounded-lg">
+  <div class="mt-5 text-red-500" *ngIf="noDataFound">
+    No city found
+  </div>
+
+  <div class="mt-5 relative overflow-x-auto shadow-md border border-gray-300 sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr class="border-b">
@@ -56,9 +61,10 @@
       </tr>
 
       <ng-template #geocodeItems>
-        <tr *ngFor="let item of geocodes"
-            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 transition-all cursor-pointer"
-            (click)="itemSelect(item)"
+        <tr
+          *ngFor="let item of geocodes"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 transition-all cursor-pointer"
+          (click)="itemSelect(item)"
         >
           <th
             scope="row"

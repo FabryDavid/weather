@@ -1,4 +1,4 @@
-<div class="flex h-full justify-between">
-  <app-search-panel class="w-1/2 h-full" (citySelected)="geocode=$event"></app-search-panel>
-  <app-display-panel class="w-1/2 h-full" [geocode]="geocode"></app-display-panel>
+<div class="flex h-full justify-between overflow-hidden">
+  <app-search-panel class="w-5/12 h-full" (citySelected)="geocode=$event"></app-search-panel>
+  <app-display-panel class="w-7/12 h-full" [geocode]="geocode"></app-display-panel>
 </div>

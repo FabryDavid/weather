@@ -34,13 +34,15 @@ export class DisplayPanelComponent implements OnInit {
   }
 
   getWeatherInfos() {
-    console.log('getOneCallWeather')
-
     if (!this.geocode) {
       return
     }
 
     this.weatherService.getOneCallWeather(this.geocode).subscribe((data) => {
+      this.onecallWeather = data
+
+      console.log(this.onecallWeather.currentWeather.weatherInfos[0].getIconName())
+
       console.log(data)
     })
   }

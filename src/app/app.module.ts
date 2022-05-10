@@ -13,13 +13,29 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatOptionModule} from "@angular/material/core";
+import {DisplayModeToggleComponent} from "./components/display-panel/display-mode-toggle/display-mode-toggle.component";
+import {DisplayUnitComponent} from "./components/display-panel/display-unit/display-unit.component";
+import { ValueDisplayComponent } from './components/display-panel/value-display/value-display.component';
+import { CounterAnimationComponent } from './components/display-panel/counter-animation/counter-animation.component';
+import { HourlyDisplayComponent } from './components/display-panel/hourly-display/hourly-display.component';
+import { HourItemComponent } from './components/display-panel/hourly-display/hour-item/hour-item.component';
+import {DailyDisplayComponent} from "./components/display-panel/daily-display/daily-display.component";
+import {DailyItemComponent} from "./components/display-panel/daily-display/daily-item/daily-item.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPanelComponent,
     HomeComponent,
-    DisplayPanelComponent
+    DisplayPanelComponent,
+    DisplayModeToggleComponent,
+    DisplayUnitComponent,
+    ValueDisplayComponent,
+    CounterAnimationComponent,
+    HourlyDisplayComponent,
+    HourItemComponent,
+    DailyDisplayComponent,
+    DailyItemComponent,
   ],
   imports: [
     BrowserModule,

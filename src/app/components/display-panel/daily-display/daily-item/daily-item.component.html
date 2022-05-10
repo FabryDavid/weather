@@ -1,0 +1,78 @@
+<div class="clay inline-block h-full py-2 rounded-2xl daily-item" *ngIf="dailyItem">
+  <div class="h-full flex">
+    <div class="h-full main-infos">
+      <div class="font-bold text-center">
+        {{dailyItem.getCalculationDate().toLocaleDateString('en-US', {month: 'short', day: "2-digit"})}}
+      </div>
+      <div class="font-light text-sm opacity-75 text-center">
+        {{dailyItem.getCalculationDate().toLocaleDateString('en-US', {weekday: 'short'})}}
+      </div>
+
+      <i
+        [ngClass]="dailyItem.weatherInfos[0].getIconName()"
+        class="text-center w-full mt-3 text-4xl wi"
+      ></i>
+
+      <div class="mt-5 text-1xl text-center w-fit mx-auto font-extrabold">
+        {{dailyItem.temp.getDayTemperature()}}°
+      </div>
+      <div class="font-light text-sm opacity-75 text-center">
+        Day
+      </div>
+
+      <div class="mt-3 text-1xl text-center w-fit mx-auto font-extrabold">
+        {{dailyItem.temp.getNightTemperature()}}°
+      </div>
+      <div class="font-light text-sm opacity-75 text-center">
+        Night
+      </div>
+    </div>
+
+    <div class="h-full extension-panel grid grid-cols-2 gap-1">
+      <div class="">
+        <div class="font-bold text-center">
+          Min temp.
+        </div>
+        <i class="wi wi-thermometer-exterior text-center w-full text-2xl"></i>
+        <div class="text-center">
+          {{dailyItem.temp.getMinTemperature()?.toFixed(0)}}°
+        </div>
+      </div>
+      <div class="">
+        <div class="font-bold text-center">
+          Max temp.
+        </div>
+        <i class="wi wi-thermometer text-center w-full text-2xl"></i>
+        <div class="text-center">
+          {{dailyItem.temp.getMaxTemperature()?.toFixed(0)}}°
+        </div>
+      </div>
+      <div class="">
+        <div class="font-bold text-center">
+          Sunrise
+        </div>
+        <i class="wi wi-sunrise text-center w-full text-2xl"></i>
+        <div class="text-center">
+          {{dailyItem.getSunriseTime().toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          hour12: false,
+          minute: '2-digit'
+        })}}
+        </div>
+      </div>
+      <div class="">
+        <div class="font-bold text-center">
+          Sunset
+        </div>
+        <i class="wi wi-sunset text-center w-full text-2xl"></i>
+        <div class="text-center">
+          {{dailyItem.getSunsetTime().toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          hour12: false,
+          minute: '2-digit'
+        })}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

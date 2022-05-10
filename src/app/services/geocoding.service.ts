@@ -11,6 +11,7 @@ import {Geocode} from "../classes/geocode/geocode.Class";
 export class GeocodingService {
   private apiUrl = 'http://api.openweathermap.org/geo/1.0/direct'
   private apiKey = environment.apiKey
+  private requestLimit = 5
 
   constructor(
     private http: HttpClient
@@ -18,7 +19,7 @@ export class GeocodingService {
   }
 
   getGeocoding(q: string): Observable<Array<Geocode>> {
-    const params = new HttpParams().set('q', q).set('appid', this.apiKey)
+    const params = new HttpParams().set('q', q).set('limit', this.requestLimit).set('appid', this.apiKey)
 
     return this.http.get<Array<Geocode>>(`${this.apiUrl}`, {
       params,

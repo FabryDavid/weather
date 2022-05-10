@@ -1,0 +1,50 @@
+.display-toggle {
+  display: inline-block;
+  padding: 2px 3px;
+  position: relative;
+
+  label {
+    text-align: center;
+    font-family: sans-serif;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 2px 3px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  span {
+    height: 26px;
+    width: 21px;
+    line-height: 21px;
+    display: block;
+    position: absolute;
+    left: 22px;
+    top: 2.5px;
+    transition: all 0.3s ease-in-out;
+    background: rgb(30, 58, 138);
+  }
+
+  input[value="current"]:checked ~ span {
+    left: 2px;
+    width: 64px;
+  }
+
+  input[value="hourly"]:checked ~ span {
+    left: 67px;
+    width: 60px;
+  }
+
+  input[value="daily"]:checked ~ span {
+    left: 131px;
+    width: 44px;
+  }
+}

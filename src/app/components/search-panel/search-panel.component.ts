@@ -13,10 +13,10 @@ export class SearchPanelComponent implements OnInit {
   @Output() citySelected: EventEmitter<Geocode> = new EventEmitter<Geocode>()
 
   faCity = faCity;
-
   searchText = 'salgótarján'
   geocodes: Array<Geocode> = []
   selectedGeocode: Geocode | null = null
+  noDataFound = false
 
   constructor(
     private geocodingService: GeocodingService,
@@ -33,11 +33,15 @@ export class SearchPanelComponent implements OnInit {
       return
     }
 
+    this.noDataFound = false
+
     this.geocodingService.getGeocoding(searchText).subscribe((data) => {
       this.geocodes = data
 
-      if (data.length === 1) {
+      if (data.length > 0) {
         this.itemSelect(data[0])
+      } else {
+        this.noDataFound = true
       }
     })
   }

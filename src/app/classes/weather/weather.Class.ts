@@ -13,4 +13,14 @@ export class Weather {
     public weatherInfos: Array<WeatherInfos>,
   ) {
   }
+
+  public convertUtcDate(utcSeconds: number) {
+    const d = new Date(0);
+    d.setUTCSeconds(utcSeconds);
+    return d
+  }
+
+  public getCalculationDate() {
+    return this.convertUtcDate(this.calculationDate)
+  }
 }

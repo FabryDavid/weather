@@ -1,0 +1,37 @@
+<div class="display-toggle rounded-full border-blue-300 border-2 font-bold capitalize">
+  <input
+    [(ngModel)]="displayMode"
+    checked
+    id="currentWeather"
+    type="radio"
+    name="toggle"
+    value="current"
+  >
+  <label for="currentWeather" class="">
+    {{DisplayModeEnum.current}}
+  </label>
+
+  <input
+    [(ngModel)]="displayMode"
+    id="hourly"
+    type="radio"
+    name="toggle"
+    value="hourly"
+  >
+  <label for="hourly" class="mx-2">
+    {{DisplayModeEnum.hourly}}
+  </label>
+
+  <input
+    [(ngModel)]="displayMode"
+    id="daily"
+    type="radio"
+    name="toggle"
+    value="daily"
+  >
+  <label for="daily" class="">
+    {{DisplayModeEnum.daily}}
+  </label>
+
+  <span class="rounded-full"></span>
+</div>
