@@ -3,7 +3,6 @@
 .display-panel {
   position: relative;
   margin-top: 100px;
-  max-height: 1300px;
 
   @screen lg {
     padding-left: 200px;
@@ -28,7 +27,7 @@
     @screen lg {
       width: 100%;
       height: 125%;
-      top: -7.5%;
+      top: -70px;
       transform: rotate(10deg);
       left: 12.5%;
     }
