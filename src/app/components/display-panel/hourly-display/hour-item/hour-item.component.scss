@@ -1,10 +1,8 @@
+@import "src/app/scss/mixins";
+@import "src/app/scss/variables";
+
 .hour-item {
-  width: 75px;
-  color: white;
-  background: rgb(100, 179, 255);
-  background: linear-gradient(145deg, rgba(100, 179, 255, 1) 0%, rgba(58, 134, 208, 1) 100%);
-  transition: all 0.3s ease-in-out;
-  scroll-snap-align: start;
+  @include scroll-panel();
 
   &:hover {
     width: 125px;
@@ -12,7 +10,7 @@
 }
 
 .hour-item-night {
-  background: rgb(51, 104, 255) !important;
-  background: linear-gradient(145deg, rgba(46, 73, 215, 1) 0%, rgba(32, 51, 153, 1) 100%) !important;
+  background: $blue-1 !important;
+  background: linear-gradient(145deg, rgba($blue-1, 1) 0%, rgba($dark-blue-1, 1) 100%) !important;
   color: white;
 }

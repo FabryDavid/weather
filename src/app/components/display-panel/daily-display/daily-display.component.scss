@@ -1,25 +1,6 @@
+@import "src/app/scss/mixins";
+
 .daily-display {
+  @include horizontal-scroll-panel-container;
   height: 285px;
-  width: 100%;
-  white-space: nowrap;
-  overflow-x: scroll;
-  display: flex;
-  scroll-snap-type: x mandatory;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.45);
-    border-radius: 50px;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.65);
-    }
-  }
 }

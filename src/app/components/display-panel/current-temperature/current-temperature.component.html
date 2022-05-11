@@ -1,0 +1,24 @@
+<div class="mt-10 flex flex-col md:flex-row lg:flex-col xl:flex-row w-2/3 items-center justify-between mx-auto">
+  <img
+    class="w-1/2 -mt-8"
+    [matTooltip]="currentWeather.weatherInfos[0].main"
+    [src]="'assets/weather-icons/'+currentWeather.weatherInfos[0].getIconName()"
+    [alt]="currentWeather.weatherInfos[0].main"
+  >
+
+  <div class="text-center md:text-right lg:text-center xl:text-right">
+    <div class="text-7xl font-black temperature-display">
+      <app-counter-animation
+        [value]="currentWeather.getTemperature()"
+        [timeInterval]="500"
+      ></app-counter-animation>&nbsp;°
+    </div>
+    <div class="text-3xl">
+      Feels like
+      <app-counter-animation
+        [value]="currentWeather.getTemperatureFeelsLike()"
+        [timeInterval]="500"
+      ></app-counter-animation>&nbsp;°
+    </div>
+  </div>
+</div>

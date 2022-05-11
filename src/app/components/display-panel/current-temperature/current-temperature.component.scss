@@ -1,0 +1,8 @@
+@import "src/app/scss/variables";
+
+.temperature-display {
+  background: $light-blue-1;
+  background: linear-gradient(180deg, rgba($light-blue-1, 1) 0%, rgba($light-blue-2, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

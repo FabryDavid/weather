@@ -1,24 +1,18 @@
+@import "src/app/scss/mixins";
+@import "src/app/scss/variables";
+
+
 .daily-item {
-  $width: 75px;
-  min-width: $width;
-  color: white;
-  background: rgb(100, 179, 255);
-  background: linear-gradient(145deg, rgba(100, 179, 255, 1) 0%, rgba(58, 134, 208, 1) 100%);
-  transition: all 0.3s ease-in-out;
+  @include scroll-panel();
   overflow: hidden;
-  scroll-snap-align: start;
 
   &:hover {
     .extension-panel {
       width: 190px;
-      border-left: solid 2px rgba(59, 130, 246, 1);
+      border-left: solid 2px $blue-1;
       padding-left: 0.25rem;
       padding-right: 0.25rem;
     }
-  }
-
-  .main-infos {
-    width: $width;
   }
 
   .extension-panel {
@@ -31,6 +25,10 @@
 }
 
 .today {
-  background: rgb(255, 205, 128);
-  background: linear-gradient(145deg, rgba(255, 205, 128, 1) 0%, rgba(255, 189, 88, 1) 100%);
+  background: $yellow-1;
+  background: linear-gradient(145deg, rgba($yellow-1, 1) 0%, rgba($yellow-2, 1) 100%);
+
+  .extension-panel {
+    border-left-color: $dark-yellow-1 !important;
+  }
 }

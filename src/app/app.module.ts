@@ -27,6 +27,11 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {LogoComponent} from "./components/shared/logo/logo.component";
 import { SearchInputComponent } from './components/search-panel/search-input/search-input.component';
 import { GeocodesTableComponent } from './components/search-panel/geocodes-table/geocodes-table.component';
+import { BaseInfosComponent } from './components/display-panel/base-infos/base-infos.component';
+import {
+  CurrentTemperatureComponent
+} from "./components/display-panel/current-temperature/current-temperature.component";
+import { CurrentTemperatureDetailsComponent } from './components/display-panel/current-temperature-details/current-temperature-details.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,9 @@ import { GeocodesTableComponent } from './components/search-panel/geocodes-table
     LogoComponent,
     SearchInputComponent,
     GeocodesTableComponent,
+    BaseInfosComponent,
+    CurrentTemperatureComponent,
+    CurrentTemperatureDetailsComponent,
   ],
   imports: [
     BrowserModule,

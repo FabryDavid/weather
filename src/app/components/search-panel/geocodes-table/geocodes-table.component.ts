@@ -7,7 +7,7 @@ import {Geocode} from "../../../classes/geocode/geocode.Class";
   styleUrls: ['./geocodes-table.component.scss']
 })
 export class GeocodesTableComponent implements OnInit {
-  @Output() selectItem:EventEmitter<Geocode>=new EventEmitter<Geocode>()
+  @Output() selectItem: EventEmitter<Geocode> = new EventEmitter<Geocode>()
 
   @Input() geocodes: Array<Geocode> = []
 

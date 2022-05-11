@@ -1,0 +1,49 @@
+<div
+  class="mt-8 bg-white rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-6 clay"
+>
+  <app-value-display
+    title="UV index"
+    [value]="currentWeather.uvIndex.toFixed(0)"
+    icon="uv-index.svg"
+  ></app-value-display>
+
+  <app-value-display
+    title="Sun rise"
+    [value]="currentWeather.getSunrise().toLocaleTimeString(
+      'en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        'hour12': false
+      })"
+    icon="sunrise.svg"
+  ></app-value-display>
+
+  <app-value-display
+    title="Sun set"
+    [value]="currentWeather.getSunset().toLocaleTimeString(
+      'en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        'hour12': false
+      })"
+    icon="sunset.svg"
+  ></app-value-display>
+
+  <app-value-display
+    title="Humidity"
+    [value]="currentWeather.humidity.toFixed(0)+' %'"
+    icon="humidity.svg"
+  ></app-value-display>
+
+  <app-value-display
+    title="Visibility"
+    [value]="currentWeather.getVisibility()"
+    icon="horizon.svg"
+  ></app-value-display>
+
+  <app-value-display
+    title="Wind"
+    [value]="currentWeather.wind.getWindSpeed()"
+    icon="wind.svg"
+  ></app-value-display>
+</div>
