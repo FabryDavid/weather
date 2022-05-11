@@ -1,0 +1,28 @@
+<ng-form class="mt-10 h-fit w-full sm:w-2/3 lg:w-1/2">
+  <label for="searchText" class="block mb-2 text-sm font-medium">
+    City, country
+  </label>
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      <fa-icon class="h-5 w-5 text-gray-400" [icon]="faCity"></fa-icon>
+    </div>
+    <input
+      id="searchText"
+      matInput
+      name="searchText"
+      [(ngModel)]="searchText"
+      type="text"
+      style="border: gray 1px solid;"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="City, country"
+    >
+  </div>
+
+  <button
+    (click)="searchGeocoding()"
+    type="submit"
+    class="mt-10 mr-0 float-right text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+  >
+    Search
+  </button>
+</ng-form>
