@@ -32,6 +32,8 @@ import {
   CurrentTemperatureComponent
 } from "./components/display-panel/current-temperature/current-temperature.component";
 import { CurrentTemperatureDetailsComponent } from './components/display-panel/current-temperature-details/current-temperature-details.component';
+import { IsTodayPipe } from './pipes/is-today.pipe';
+import { IsNightPipe } from './pipes/is-night.pipe';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { CurrentTemperatureDetailsComponent } from './components/display-panel/c
     BaseInfosComponent,
     CurrentTemperatureComponent,
     CurrentTemperatureDetailsComponent,
+    IsTodayPipe,
+    IsNightPipe,
   ],
   imports: [
     BrowserModule,

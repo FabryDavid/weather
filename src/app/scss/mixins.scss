@@ -8,7 +8,7 @@
   scroll-snap-type: x mandatory;
 
   &::-webkit-scrollbar {
-    height: 6px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-track {
@@ -25,7 +25,7 @@
   }
 }
 
-@mixin scroll-panel{
+@mixin scroll-panel {
   $width: 75px;
   min-width: $width;
   color: white;
@@ -36,5 +36,27 @@
 
   .main-infos {
     width: $width;
+  }
+
+  &:hover {
+    .weather-icon {
+      .animated {
+        display: block;
+      }
+
+      .static {
+        display: none;
+      }
+    }
+  }
+
+  .weather-icon {
+    .animated {
+      display: none;
+    }
+
+    .static {
+      display: block;
+    }
   }
 }

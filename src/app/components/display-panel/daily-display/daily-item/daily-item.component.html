@@ -1,4 +1,8 @@
-<div [class.today]="isToday()" class="clay inline-block h-full py-2 rounded-2xl daily-item" *ngIf="dailyItem">
+<div
+  [class.today]="dailyItem.getCalculationDate() | isToday"
+  class="clay inline-block h-full py-2 rounded-2xl daily-item"
+  *ngIf="dailyItem"
+>
   <div class="h-full flex">
     <div class="h-full main-infos">
       <div class="font-bold text-center">
@@ -8,12 +12,23 @@
         {{dailyItem.getCalculationDate().toLocaleDateString('en-US', {weekday: 'short'})}}
       </div>
 
-      <img
-        class="w-16 mx-auto"
-        [matTooltip]="dailyItem.weatherInfos[0].main"
-        [src]="'assets/weather-icons/'+dailyItem.weatherInfos[0].getIconName()"
-        [alt]="dailyItem.weatherInfos[0].main"
-      >
+      <div class="weather-icon">
+        <!-- Animated -->
+        <img
+          class="animated w-16 mx-auto"
+          [matTooltip]="dailyItem.weatherInfos[0].main"
+          [src]="'assets/weather-icons/animated/'+dailyItem.weatherInfos[0].getIconName()"
+          [alt]="dailyItem.weatherInfos[0].main"
+        >
+
+        <!-- Static -->
+        <img
+          class="static w-16 mx-auto"
+          [matTooltip]="dailyItem.weatherInfos[0].main"
+          [src]="'assets/weather-icons/static/'+dailyItem.weatherInfos[0].getIconName()"
+          [alt]="dailyItem.weatherInfos[0].main"
+        >
+      </div>
 
       <div class="mt-5 text-1xl text-center w-fit mx-auto font-extrabold">
         {{dailyItem.temp.getDayTemperature()}}°

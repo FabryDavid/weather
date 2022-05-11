@@ -40,7 +40,7 @@ export class CounterAnimationComponent implements OnInit {
     this.interval = setInterval(function () {
       if (current.currentValue < current.value) {
         current.currentValue++;
-      } else if (current.interval) {
+      } else {
         clearInterval(current.interval)
       }
     }, sleep)

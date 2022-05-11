@@ -14,9 +14,4 @@ export class DailyItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  isToday() {
-    const today = new Date()
-    return this.dailyItem?.getCalculationDate().setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)
-  }
 }

@@ -7,20 +7,11 @@ import {HourlyWeather} from "../../../../classes/hourly-weather/hourly-weather.C
   styleUrls: ['./hour-item.component.scss']
 })
 export class HourItemComponent implements OnInit {
-  @Input() hourItem?: HourlyWeather
+  @Input() hourItem!: HourlyWeather
 
   constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  isNight() {
-    if (!this.hourItem) {
-      return false
-    }
-
-    const hour = this.hourItem.getCalculationDate().getHours()
-    return hour >= 18 || hour <= 5;
   }
 }

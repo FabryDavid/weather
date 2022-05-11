@@ -1,5 +1,6 @@
 <div
-  [ngClass]="{'hour-item-night': isNight()}" class="clay h-full py-2 rounded-2xl hour-item"
+  [ngClass]="{'hour-item-night': hourItem.getCalculationDate() | isNight}"
+  class="clay h-full py-2 rounded-2xl hour-item"
   *ngIf="hourItem"
 >
   <div class="font-bold text-center">
@@ -9,12 +10,23 @@
     {{hourItem.getCalculationDate().toLocaleDateString('en-US', {weekday: 'short'})}}
   </div>
 
-  <img
-    class="w-16 mx-auto"
-    [matTooltip]="hourItem.weatherInfos[0].main"
-    [src]="'assets/weather-icons/'+hourItem.weatherInfos[0].getIconName()"
-    [alt]="hourItem.weatherInfos[0].main"
-  >
+  <div class="weather-icon">
+    <!-- Animated -->
+    <img
+      class="animated w-16 mx-auto"
+      [matTooltip]="hourItem.weatherInfos[0].main"
+      [src]="'assets/weather-icons/animated/'+hourItem.weatherInfos[0].getIconName()"
+      [alt]="hourItem.weatherInfos[0].main"
+    >
+
+    <!-- Static -->
+    <img
+      class="static w-16 mx-auto"
+      [matTooltip]="hourItem.weatherInfos[0].main"
+      [src]="'assets/weather-icons/static/'+hourItem.weatherInfos[0].getIconName()"
+      [alt]="hourItem.weatherInfos[0].main"
+    >
+  </div>
 
   <div class="mt-5 text-1xl text-center w-fit mx-auto font-extrabold">
     {{hourItem.getTemperature()}}°

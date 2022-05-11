@@ -5,7 +5,7 @@
   @include scroll-panel();
 
   &:hover {
-    width: 125px;
+    min-width: 125px;
   }
 }
 

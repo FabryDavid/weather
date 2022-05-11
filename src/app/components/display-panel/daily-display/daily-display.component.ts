@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HourlyWeather} from "../../../classes/hourly-weather/hourly-weather.Class";
 import {DailyWeather} from "../../../classes/daily-weather/daily-weather.Class";
 
 @Component({
@@ -15,5 +14,4 @@ export class DailyDisplayComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
