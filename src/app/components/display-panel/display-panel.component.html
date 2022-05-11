@@ -19,27 +19,27 @@
         })}}
       </div>
 
-      <div class="mt-10 flex flex-col md:flex-row w-2/3 justify-between mx-auto">
-        <i
-          [ngClass]="onecallWeather.currentWeather.weatherInfos[0].getIconName()"
-          class="text-9xl wi text-center md:text-left"
-        ></i>
+      <div class="mt-10 flex flex-col md:flex-row lg:flex-col xl:flex-row w-2/3 items-center justify-between mx-auto">
+        <img
+          class="w-1/2 -mt-8"
+          [matTooltip]="onecallWeather.currentWeather.weatherInfos[0].main"
+          [src]="'assets/weather-icons/'+onecallWeather.currentWeather.weatherInfos[0].getIconName()"
+          [alt]="onecallWeather.currentWeather.weatherInfos[0].main"
+        >
 
-        <div class="text-center md:text-right">
+        <div class="text-center md:text-right lg:text-center xl:text-right">
           <div class="text-7xl font-black temperature-display">
             <app-counter-animation
               [value]="onecallWeather.currentWeather.getTemperature()"
               [timeInterval]="500"
-            ></app-counter-animation>
-            °
+            ></app-counter-animation>&nbsp;°
           </div>
           <div class="text-3xl">
             Feels like
             <app-counter-animation
               [value]="onecallWeather.currentWeather.getTemperatureFeelsLike()"
               [timeInterval]="500"
-            ></app-counter-animation>
-            °
+            ></app-counter-animation>&nbsp;°
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <app-value-display
           title="UV index"
           [value]="onecallWeather.currentWeather.uvIndex.toFixed(0)"
-          [icon]="'wi-hot'"
+          icon="uv-index.svg"
         ></app-value-display>
 
         <app-value-display
@@ -61,7 +61,7 @@
         minute: '2-digit',
         'hour12': false
       })"
-          [icon]="'wi-sunrise'"
+          icon="sunrise.svg"
         ></app-value-display>
 
         <app-value-display
@@ -72,37 +72,37 @@
         minute: '2-digit',
         'hour12': false
       })"
-          [icon]="'wi-sunset'"
+          icon="sunset.svg"
         ></app-value-display>
 
         <app-value-display
           title="Humidity"
           [value]="onecallWeather.currentWeather.humidity.toFixed(0)+' %'"
-          [icon]="'wi-humidity'"
+          icon="humidity.svg"
         ></app-value-display>
 
         <app-value-display
           title="Visibility"
           [value]="onecallWeather.currentWeather.getVisibility()"
-          [icon]="'wi-horizon'"
+          icon="horizon.svg"
         ></app-value-display>
 
         <app-value-display
           title="Wind"
           [value]="onecallWeather.currentWeather.wind.getWindSpeed()"
-          [icon]="'wi-strong-wind'"
+          icon="wind.svg"
         ></app-value-display>
       </div>
     </div>
 
-   <div class="">
-     <div class="mt-10">
-       <app-hourly-display [hourlyWeather]="onecallWeather.hourlyWeather"></app-hourly-display>
-     </div>
+    <div class="">
+      <div class="mt-10">
+        <app-hourly-display [hourlyWeather]="onecallWeather.hourlyWeather"></app-hourly-display>
+      </div>
 
-     <div class="mt-10">
-       <app-daily-display [dailyWeather]="onecallWeather.dailyWeather"></app-daily-display>
-     </div>
-   </div>
+      <div class="mt-10">
+        <app-daily-display [dailyWeather]="onecallWeather.dailyWeather"></app-daily-display>
+      </div>
+    </div>
   </div>
 </div>

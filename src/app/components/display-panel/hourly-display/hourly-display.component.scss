@@ -1,8 +1,10 @@
 .hourly-display {
   height: 200px;
   width: 100%;
-  overflow: auto;
   white-space: nowrap;
+  overflow-x: scroll;
+  display: flex;
+  scroll-snap-type: x mandatory;
 
   &::-webkit-scrollbar {
     width: 6px;

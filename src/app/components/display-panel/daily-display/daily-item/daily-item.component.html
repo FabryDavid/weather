@@ -8,10 +8,16 @@
         {{dailyItem.getCalculationDate().toLocaleDateString('en-US', {weekday: 'short'})}}
       </div>
 
-      <i
-        [ngClass]="dailyItem.weatherInfos[0].getIconName()"
-        class="text-center w-full mt-3 text-4xl wi"
-      ></i>
+<!--      <i-->
+<!--        [ngClass]="dailyItem.weatherInfos[0].getIconName()"-->
+<!--        class="text-center w-full mt-3 text-4xl wi"-->
+<!--      ></i>-->
+      <img
+        class="w-16 mx-auto"
+        [matTooltip]="dailyItem.weatherInfos[0].main"
+        [src]="'assets/weather-icons/'+dailyItem.weatherInfos[0].getIconName()"
+        [alt]="dailyItem.weatherInfos[0].main"
+      >
 
       <div class="mt-5 text-1xl text-center w-fit mx-auto font-extrabold">
         {{dailyItem.temp.getDayTemperature()}}°

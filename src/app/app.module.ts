@@ -21,6 +21,9 @@ import { HourlyDisplayComponent } from './components/display-panel/hourly-displa
 import { HourItemComponent } from './components/display-panel/hourly-display/hour-item/hour-item.component';
 import {DailyDisplayComponent} from "./components/display-panel/daily-display/daily-display.component";
 import {DailyItemComponent} from "./components/display-panel/daily-display/daily-item/daily-item.component";
+import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -39,15 +42,18 @@ import {DailyItemComponent} from "./components/display-panel/daily-display/daily
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     HttpClientModule,
     MatAutocompleteModule,
-    MatOptionModule
+    MatOptionModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
