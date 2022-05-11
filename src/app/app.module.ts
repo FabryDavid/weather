@@ -24,6 +24,9 @@ import {DailyItemComponent} from "./components/display-panel/daily-display/daily
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {LogoComponent} from "./components/shared/logo/logo.component";
+import { SearchInputComponent } from './components/search-panel/search-input/search-input.component';
+import { GeocodesTableComponent } from './components/search-panel/geocodes-table/geocodes-table.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     HourItemComponent,
     DailyDisplayComponent,
     DailyItemComponent,
+    LogoComponent,
+    SearchInputComponent,
+    GeocodesTableComponent,
   ],
   imports: [
     BrowserModule,

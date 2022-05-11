@@ -1,93 +1,13 @@
 <div class="flex flex-col items-center h-full w-full justify-center px-4">
-  <div class="font-black text-4xl">
-    <i class="wi wi-day-haze inline-block mr-4 text-6xl"></i>
-    <h1 class="inline-block">
-      Weatherly
-    </h1>
-  </div>
+  <app-logo></app-logo>
 
-  <ng-form class="mt-10 h-fit w-full sm:w-2/3 lg:w-1/2">
-    <label for="searchText" class="block mb-2 text-sm font-medium">
-      City, country
-    </label>
-    <div class="relative">
-      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <fa-icon class="h-5 w-5 text-gray-400" [icon]="faCity"></fa-icon>
-      </div>
-      <input
-        id="searchText"
-        matInput
-        name="searchText"
-        [(ngModel)]="searchText"
-        type="text"
-        style="border: gray 1px solid;"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="City, country"
-      >
-    </div>
-
-    <button
-      (click)="searchGeocoding()"
-      type="submit"
-      class="mt-10 mr-0 float-right text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-    >
-      Search
-    </button>
-  </ng-form>
+  <app-search-input (geocodingsFound)="setGeocodes($event)"></app-search-input>
 
   <div class="mt-5 text-red-500" *ngIf="noDataFound">
     No city found
   </div>
 
   <div class="mt-5 w-full sm:w-2/3 lg:w-3/4 relative overflow-x-auto shadow-md border border-gray-300 rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-      <tr class="border-b">
-        <th scope="col" class="px-6 py-3">
-          Name
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Country
-        </th>
-        <th scope="col" class="px-6 py-3">
-          State
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr
-        *ngIf="geocodes.length === 0; else geocodeItems"
-        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-      >
-        <td
-          colspan="3"
-          class="text-center px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-        >
-          No item found.
-        </td>
-      </tr>
-
-      <ng-template #geocodeItems>
-        <tr
-          *ngFor="let item of geocodes"
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 transition-all cursor-pointer"
-          (click)="itemSelect(item)"
-        >
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-          >
-            {{item.name}}
-          </th>
-          <td class="px-6 py-4">
-            {{item.country}}
-          </td>
-          <td class="px-6 py-4">
-            {{item.state ? item.state : '-'}}
-          </td>
-        </tr>
-      </ng-template>
-      </tbody>
-    </table>
+    <app-geocodes-table (selectItem)="selectItem($event)" [geocodes]="geocodes"></app-geocodes-table>
   </div>
 </div>
