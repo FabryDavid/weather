@@ -9,9 +9,14 @@ import {DailyWeather} from "../../../../classes/daily-weather/daily-weather.Clas
 export class DailyItemComponent implements OnInit {
   @Input() dailyItem?: DailyWeather
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  isToday() {
+    const today = new Date()
+    return this.dailyItem?.getCalculationDate().setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)
+  }
 }

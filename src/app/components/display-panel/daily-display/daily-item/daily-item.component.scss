@@ -3,7 +3,7 @@
   min-width: $width;
   color: rgb(31 41 55);
   background: rgb(51, 104, 255);
-  background: linear-gradient(145deg, rgba(51, 104, 255, 1) 0%, rgba(241, 246, 255, 1) 0%, rgba(195, 217, 255, 1) 100%);
+  background: linear-gradient(rgba(241, 246, 255, 1) 0%, rgba(195, 217, 255, 1) 100%);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 
@@ -27,4 +27,9 @@
     border-left: solid 2px rgba(59, 130, 246, 0);
     transform-origin: right center;
   }
+}
+
+.today {
+  background: rgb(51, 104, 255) !important;
+  background: linear-gradient(rgba(255,237,160,1) 0%, rgba(231,198,127,1) 100%) !important;
 }

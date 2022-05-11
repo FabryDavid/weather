@@ -1,102 +1,108 @@
-<div class="h-full w-full display-panel">
-  <div *ngIf="onecallWeather" class="h-full overflow-y-auto relative z-10 p-4 pt-10 drop-shadow-xl text-white">
-    <app-display-unit></app-display-unit>
+<div class="min-h-full lg:h-full w-full display-panel lg:display-panel-lg">
+  <div *ngIf="onecallWeather" class="lg:h-full lg:overflow-y-auto relative z-10 pt-10 drop-shadow-xl text-white">
+    <div class="p-4">
+      <app-display-unit></app-display-unit>
 
-    <h2 class="text-6xl mt-5 text-white font-black text-center">
-      {{geocode?.name}}
-    </h2>
+      <h2 class="text-6xl mt-5 text-white font-black text-center">
+        {{geocode?.name}}
+      </h2>
 
-    <div class="text-center mt-3">
-      {{onecallWeather.currentWeather.getCalculationDate().toLocaleDateString(
+      <div class="text-center mt-3">
+        {{onecallWeather.currentWeather.getCalculationDate().toLocaleDateString(
+        'en-US', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          'hour12': false
+        })}}
+      </div>
+
+      <div class="mt-10 flex flex-col md:flex-row w-2/3 justify-between mx-auto">
+        <i
+          [ngClass]="onecallWeather.currentWeather.weatherInfos[0].getIconName()"
+          class="text-9xl wi text-center md:text-left"
+        ></i>
+
+        <div class="text-center md:text-right">
+          <div class="text-7xl font-black temperature-display">
+            <app-counter-animation
+              [value]="onecallWeather.currentWeather.getTemperature()"
+              [timeInterval]="500"
+            ></app-counter-animation>
+            °
+          </div>
+          <div class="text-3xl">
+            Feels like
+            <app-counter-animation
+              [value]="onecallWeather.currentWeather.getTemperatureFeelsLike()"
+              [timeInterval]="500"
+            ></app-counter-animation>
+            °
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 bg-white rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-6 clay"
+      >
+        <app-value-display
+          title="UV index"
+          [value]="onecallWeather.currentWeather.uvIndex.toFixed(0)"
+          [icon]="'wi-hot'"
+        ></app-value-display>
+
+        <app-value-display
+          title="Sun rise"
+          [value]="onecallWeather.currentWeather.getSunrise().toLocaleTimeString(
       'en-US', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
         'hour12': false
-      })}}
-    </div>
+      })"
+          [icon]="'wi-sunrise'"
+        ></app-value-display>
 
-    <div class="mt-10 flex w-2/3 justify-between mx-auto">
-      <i
-        [ngClass]="onecallWeather.currentWeather.weatherInfos[0].getIconName()"
-        class="text-9xl wi"
-      ></i>
+        <app-value-display
+          title="Sun set"
+          [value]="onecallWeather.currentWeather.getSunset().toLocaleTimeString(
+      'en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        'hour12': false
+      })"
+          [icon]="'wi-sunset'"
+        ></app-value-display>
 
-      <div class="text-right">
-        <div class="text-7xl font-black temperature-display">
-          <app-counter-animation
-            [value]="onecallWeather.currentWeather.getTemperature()"
-            [timeInterval]="500"
-          ></app-counter-animation>
-          °
-        </div>
-        <div class="text-3xl">
-          Feels like
-          <app-counter-animation
-            [value]="onecallWeather.currentWeather.getTemperatureFeelsLike()"
-            [timeInterval]="500"
-          ></app-counter-animation>
-          °
-        </div>
+        <app-value-display
+          title="Humidity"
+          [value]="onecallWeather.currentWeather.humidity.toFixed(0)+' %'"
+          [icon]="'wi-humidity'"
+        ></app-value-display>
+
+        <app-value-display
+          title="Visibility"
+          [value]="onecallWeather.currentWeather.getVisibility()"
+          [icon]="'wi-horizon'"
+        ></app-value-display>
+
+        <app-value-display
+          title="Wind"
+          [value]="onecallWeather.currentWeather.wind.getWindSpeed()"
+          [icon]="'wi-strong-wind'"
+        ></app-value-display>
       </div>
     </div>
 
-    <div class="mt-8 bg-white rounded-2xl p-4 grid grid-cols-3 gap-x-3 gap-y-6 clay">
-      <app-value-display
-        title="UV index"
-        [value]="onecallWeather.currentWeather.uvIndex.toFixed(0)"
-        [icon]="'wi-hot'"
-      ></app-value-display>
+   <div class="">
+     <div class="mt-10">
+       <app-hourly-display [hourlyWeather]="onecallWeather.hourlyWeather"></app-hourly-display>
+     </div>
 
-      <app-value-display
-        title="Sun rise"
-        [value]="onecallWeather.currentWeather.getSunrise().toLocaleTimeString(
-      'en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        'hour12': false
-      })"
-        [icon]="'wi-sunrise'"
-      ></app-value-display>
-
-      <app-value-display
-        title="Sun set"
-        [value]="onecallWeather.currentWeather.getSunset().toLocaleTimeString(
-      'en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        'hour12': false
-      })"
-        [icon]="'wi-sunset'"
-      ></app-value-display>
-
-      <app-value-display
-        title="Humidity"
-        [value]="onecallWeather.currentWeather.humidity.toFixed(0)+' %'"
-        [icon]="'wi-humidity'"
-      ></app-value-display>
-
-      <app-value-display
-        title="Visibility"
-        [value]="onecallWeather.currentWeather.getVisibility()"
-        [icon]="'wi-horizon'"
-      ></app-value-display>
-
-      <app-value-display
-        title="Wind"
-        [value]="onecallWeather.currentWeather.wind.getWindSpeed()"
-        [icon]="'wi-strong-wind'"
-      ></app-value-display>
-    </div>
-
-    <div class="mt-10">
-      <app-hourly-display [hourlyWeather]="onecallWeather.hourlyWeather"></app-hourly-display>
-    </div>
-
-    <div class="mt-10">
-      <app-daily-display [dailyWeather]="onecallWeather.dailyWeather"></app-daily-display>
-    </div>
+     <div class="mt-10">
+       <app-daily-display [dailyWeather]="onecallWeather.dailyWeather"></app-daily-display>
+     </div>
+   </div>
   </div>
 </div>

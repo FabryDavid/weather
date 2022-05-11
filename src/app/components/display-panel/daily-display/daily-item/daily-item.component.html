@@ -1,4 +1,4 @@
-<div class="clay inline-block h-full py-2 rounded-2xl daily-item" *ngIf="dailyItem">
+<div [class.today]="isToday()" class="clay inline-block h-full py-2 rounded-2xl daily-item" *ngIf="dailyItem">
   <div class="h-full flex">
     <div class="h-full main-infos">
       <div class="font-bold text-center">
