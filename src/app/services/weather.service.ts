@@ -5,7 +5,6 @@ import {Observable, throwError} from "rxjs";
 import {Geocode} from "../classes/geocode/geocode.Class";
 import {catchError, map} from "rxjs/operators";
 import {CurrentWeather} from "../classes/current-weather/current-weather.Class";
-import {Weather} from "../classes/weather/weather.Class";
 import {OnecallWeather} from "../classes/onecall-weather/onecall-weather.Class";
 import {Wind} from "../classes/wind/wind.Class";
 import {WeatherInfos} from "../classes/weather-infos/weather-infos.Class";
