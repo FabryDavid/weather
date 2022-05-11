@@ -12,7 +12,7 @@ export class SearchInputComponent implements OnInit {
   @Output() geocodingsFound: EventEmitter<Array<Geocode>> = new EventEmitter<Array<Geocode>>()
 
   faCity = faCity;
-  searchText = 'salgótarján'
+  searchText = ''
 
   constructor(
     private geocodingService: GeocodingService,

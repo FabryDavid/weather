@@ -29,19 +29,20 @@ export class CounterAnimationComponent implements OnInit {
   }
 
   startCounter() {
-    this.currentValue = this.start
-    const sleep = this.timeInterval / (this.value - this.start)
-    const current = this
+    this.currentValue = this.start + (this.value % 1)
+    const sleep = Math.abs(Math.floor(this.timeInterval / (this.value - this.start)));
+    const self = this
 
-    if (current.interval) {
-      clearInterval(current.interval)
+    if (self.interval) {
+      clearInterval(self.interval)
     }
 
     this.interval = setInterval(function () {
-      if (current.currentValue < current.value) {
-        current.currentValue++;
+      if (self.currentValue < self.value) {
+        self.currentValue++;
       } else {
-        clearInterval(current.interval)
+        clearInterval(self.interval)
+        self.currentValue = self.value
       }
     }, sleep)
   }
